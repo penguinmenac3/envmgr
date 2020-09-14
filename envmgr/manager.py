@@ -7,8 +7,8 @@ import json
 import os
 
 
-def setup() -> None:
-    with open("envmgr.json", "r") as f:
+def setup(project_root=".") -> None:
+    with open(os.path.join(project_root, "envmgr.json"), "r") as f:
         data = json.loads(f.read())
     for k, v in data["paths"].items():
         parts = v.split("/")
